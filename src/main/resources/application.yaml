@@ -23,3 +23,12 @@ spring:
 
   flyway:
     enabled: true
+
+springdoc:
+  api-docs:
+    path: /api-docs/json
+  swagger-ui:
+    enabled: true
+    path: /api-docs.html
+  default-consumes-media-type: application/json
+  default-produces-media-type: application/json
