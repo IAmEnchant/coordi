@@ -13,7 +13,7 @@ CREATE TABLE brand
 CREATE TABLE product
 (
     id          BIGINT PRIMARY KEY AUTO_INCREMENT,
-    price       INT NOT NULL,
+    price       NUMERIC NOT NULL,
     brand_id    BIGINT,
     category_id BIGINT,
     CONSTRAINT fk_brand FOREIGN KEY (brand_id) REFERENCES brand (id),
@@ -57,153 +57,154 @@ INSERT INTO brand (name)
 VALUES ('I');
 
 INSERT INTO product (price, brand_id, category_id)
-VALUES (11200, (SELECT id FROM brand WHERE name = 'A'), (SELECT id FROM category WHERE name = '상의'));
+VALUES (11200.00, (SELECT id FROM brand WHERE name = 'A'), (SELECT id FROM category WHERE name = '상의'));
 INSERT INTO product (price, brand_id, category_id)
-VALUES (5500, (SELECT id FROM brand WHERE name = 'A'), (SELECT id FROM category WHERE name = '아우터'));
+VALUES (5500.00, (SELECT id FROM brand WHERE name = 'A'), (SELECT id FROM category WHERE name = '아우터'));
 INSERT INTO product (price, brand_id, category_id)
-VALUES (4200, (SELECT id FROM brand WHERE name = 'A'), (SELECT id FROM category WHERE name = '바지'));
+VALUES (4200.00, (SELECT id FROM brand WHERE name = 'A'), (SELECT id FROM category WHERE name = '바지'));
 INSERT INTO product (price, brand_id, category_id)
-VALUES (9000, (SELECT id FROM brand WHERE name = 'A'), (SELECT id FROM category WHERE name = '스니커즈'));
+VALUES (9000.00, (SELECT id FROM brand WHERE name = 'A'), (SELECT id FROM category WHERE name = '스니커즈'));
 INSERT INTO product (price, brand_id, category_id)
-VALUES (2000, (SELECT id FROM brand WHERE name = 'A'), (SELECT id FROM category WHERE name = '가방'));
+VALUES (2000.00, (SELECT id FROM brand WHERE name = 'A'), (SELECT id FROM category WHERE name = '가방'));
 INSERT INTO product (price, brand_id, category_id)
-VALUES (1700, (SELECT id FROM brand WHERE name = 'A'), (SELECT id FROM category WHERE name = '모자'));
+VALUES (1700.00, (SELECT id FROM brand WHERE name = 'A'), (SELECT id FROM category WHERE name = '모자'));
 INSERT INTO product (price, brand_id, category_id)
-VALUES (1800, (SELECT id FROM brand WHERE name = 'A'), (SELECT id FROM category WHERE name = '양말'));
+VALUES (1800.00, (SELECT id FROM brand WHERE name = 'A'), (SELECT id FROM category WHERE name = '양말'));
 INSERT INTO product (price, brand_id, category_id)
-VALUES (2300, (SELECT id FROM brand WHERE name = 'A'), (SELECT id FROM category WHERE name = '액세서리'));
-
-VALUES (10500, (SELECT id FROM brand WHERE name = 'B'), (SELECT id FROM category WHERE name = '상의'));
-INSERT INTO product (price, brand_id, category_id)
-VALUES (5900, (SELECT id FROM brand WHERE name = 'B'), (SELECT id FROM category WHERE name = '아우터'));
-INSERT INTO product (price, brand_id, category_id)
-VALUES (3800, (SELECT id FROM brand WHERE name = 'B'), (SELECT id FROM category WHERE name = '바지'));
-INSERT INTO product (price, brand_id, category_id)
-VALUES (9100, (SELECT id FROM brand WHERE name = 'B'), (SELECT id FROM category WHERE name = '스니커즈'));
-INSERT INTO product (price, brand_id, category_id)
-VALUES (2100, (SELECT id FROM brand WHERE name = 'B'), (SELECT id FROM category WHERE name = '가방'));
-INSERT INTO product (price, brand_id, category_id)
-VALUES (2000, (SELECT id FROM brand WHERE name = 'B'), (SELECT id FROM category WHERE name = '모자'));
-INSERT INTO product (price, brand_id, category_id)
-VALUES (2000, (SELECT id FROM brand WHERE name = 'B'), (SELECT id FROM category WHERE name = '양말'));
-INSERT INTO product (price, brand_id, category_id)
-VALUES (2200, (SELECT id FROM brand WHERE name = 'B'), (SELECT id FROM category WHERE name = '액세서리'));
+VALUES (2300.00, (SELECT id FROM brand WHERE name = 'A'), (SELECT id FROM category WHERE name = '액세서리'));
 
 INSERT INTO product (price, brand_id, category_id)
-VALUES (10000, (SELECT id FROM brand WHERE name = 'C'), (SELECT id FROM category WHERE name = '상의'));
+VALUES (10500.00, (SELECT id FROM brand WHERE name = 'B'), (SELECT id FROM category WHERE name = '상의'));
 INSERT INTO product (price, brand_id, category_id)
-VALUES (6200, (SELECT id FROM brand WHERE name = 'C'), (SELECT id FROM category WHERE name = '아우터'));
+VALUES (5900.00, (SELECT id FROM brand WHERE name = 'B'), (SELECT id FROM category WHERE name = '아우터'));
 INSERT INTO product (price, brand_id, category_id)
-VALUES (3300, (SELECT id FROM brand WHERE name = 'C'), (SELECT id FROM category WHERE name = '바지'));
+VALUES (3800.00, (SELECT id FROM brand WHERE name = 'B'), (SELECT id FROM category WHERE name = '바지'));
 INSERT INTO product (price, brand_id, category_id)
-VALUES (9200, (SELECT id FROM brand WHERE name = 'C'), (SELECT id FROM category WHERE name = '스니커즈'));
+VALUES (9100.00, (SELECT id FROM brand WHERE name = 'B'), (SELECT id FROM category WHERE name = '스니커즈'));
 INSERT INTO product (price, brand_id, category_id)
-VALUES (2200, (SELECT id FROM brand WHERE name = 'C'), (SELECT id FROM category WHERE name = '가방'));
+VALUES (2100.00, (SELECT id FROM brand WHERE name = 'B'), (SELECT id FROM category WHERE name = '가방'));
 INSERT INTO product (price, brand_id, category_id)
-VALUES (1900, (SELECT id FROM brand WHERE name = 'C'), (SELECT id FROM category WHERE name = '모자'));
+VALUES (2000.00, (SELECT id FROM brand WHERE name = 'B'), (SELECT id FROM category WHERE name = '모자'));
 INSERT INTO product (price, brand_id, category_id)
-VALUES (2200, (SELECT id FROM brand WHERE name = 'C'), (SELECT id FROM category WHERE name = '양말'));
+VALUES (2000.00, (SELECT id FROM brand WHERE name = 'B'), (SELECT id FROM category WHERE name = '양말'));
 INSERT INTO product (price, brand_id, category_id)
-VALUES (2100, (SELECT id FROM brand WHERE name = 'C'), (SELECT id FROM category WHERE name = '액세서리'));
+VALUES (2200.00, (SELECT id FROM brand WHERE name = 'B'), (SELECT id FROM category WHERE name = '액세서리'));
 
 INSERT INTO product (price, brand_id, category_id)
-VALUES (10100, (SELECT id FROM brand WHERE name = 'D'), (SELECT id FROM category WHERE name = '상의'));
+VALUES (10000.00, (SELECT id FROM brand WHERE name = 'C'), (SELECT id FROM category WHERE name = '상의'));
 INSERT INTO product (price, brand_id, category_id)
-VALUES (5100, (SELECT id FROM brand WHERE name = 'D'), (SELECT id FROM category WHERE name = '아우터'));
+VALUES (6200.00, (SELECT id FROM brand WHERE name = 'C'), (SELECT id FROM category WHERE name = '아우터'));
 INSERT INTO product (price, brand_id, category_id)
-VALUES (3000, (SELECT id FROM brand WHERE name = 'D'), (SELECT id FROM category WHERE name = '바지'));
+VALUES (3300.00, (SELECT id FROM brand WHERE name = 'C'), (SELECT id FROM category WHERE name = '바지'));
 INSERT INTO product (price, brand_id, category_id)
-VALUES (9500, (SELECT id FROM brand WHERE name = 'D'), (SELECT id FROM category WHERE name = '스니커즈'));
+VALUES (9200.00, (SELECT id FROM brand WHERE name = 'C'), (SELECT id FROM category WHERE name = '스니커즈'));
 INSERT INTO product (price, brand_id, category_id)
-VALUES (2500, (SELECT id FROM brand WHERE name = 'D'), (SELECT id FROM category WHERE name = '가방'));
+VALUES (2200.00, (SELECT id FROM brand WHERE name = 'C'), (SELECT id FROM category WHERE name = '가방'));
 INSERT INTO product (price, brand_id, category_id)
-VALUES (1500, (SELECT id FROM brand WHERE name = 'D'), (SELECT id FROM category WHERE name = '모자'));
+VALUES (1900.00, (SELECT id FROM brand WHERE name = 'C'), (SELECT id FROM category WHERE name = '모자'));
 INSERT INTO product (price, brand_id, category_id)
-VALUES (2400, (SELECT id FROM brand WHERE name = 'D'), (SELECT id FROM category WHERE name = '양말'));
+VALUES (2200.00, (SELECT id FROM brand WHERE name = 'C'), (SELECT id FROM category WHERE name = '양말'));
 INSERT INTO product (price, brand_id, category_id)
-VALUES (2000, (SELECT id FROM brand WHERE name = 'D'), (SELECT id FROM category WHERE name = '액세서리'));
+VALUES (2100.00, (SELECT id FROM brand WHERE name = 'C'), (SELECT id FROM category WHERE name = '액세서리'));
 
 INSERT INTO product (price, brand_id, category_id)
-VALUES (10700, (SELECT id FROM brand WHERE name = 'E'), (SELECT id FROM category WHERE name = '상의'));
+VALUES (10100.00, (SELECT id FROM brand WHERE name = 'D'), (SELECT id FROM category WHERE name = '상의'));
 INSERT INTO product (price, brand_id, category_id)
-VALUES (5000, (SELECT id FROM brand WHERE name = 'E'), (SELECT id FROM category WHERE name = '아우터'));
+VALUES (5100.00, (SELECT id FROM brand WHERE name = 'D'), (SELECT id FROM category WHERE name = '아우터'));
 INSERT INTO product (price, brand_id, category_id)
-VALUES (3800, (SELECT id FROM brand WHERE name = 'E'), (SELECT id FROM category WHERE name = '바지'));
+VALUES (3000.00, (SELECT id FROM brand WHERE name = 'D'), (SELECT id FROM category WHERE name = '바지'));
 INSERT INTO product (price, brand_id, category_id)
-VALUES (9900, (SELECT id FROM brand WHERE name = 'E'), (SELECT id FROM category WHERE name = '스니커즈'));
+VALUES (9500.00, (SELECT id FROM brand WHERE name = 'D'), (SELECT id FROM category WHERE name = '스니커즈'));
 INSERT INTO product (price, brand_id, category_id)
-VALUES (2300, (SELECT id FROM brand WHERE name = 'E'), (SELECT id FROM category WHERE name = '가방'));
+VALUES (2500.00, (SELECT id FROM brand WHERE name = 'D'), (SELECT id FROM category WHERE name = '가방'));
 INSERT INTO product (price, brand_id, category_id)
-VALUES (1800, (SELECT id FROM brand WHERE name = 'E'), (SELECT id FROM category WHERE name = '모자'));
+VALUES (1500.00, (SELECT id FROM brand WHERE name = 'D'), (SELECT id FROM category WHERE name = '모자'));
 INSERT INTO product (price, brand_id, category_id)
-VALUES (2100, (SELECT id FROM brand WHERE name = 'E'), (SELECT id FROM category WHERE name = '양말'));
+VALUES (2400.00, (SELECT id FROM brand WHERE name = 'D'), (SELECT id FROM category WHERE name = '양말'));
 INSERT INTO product (price, brand_id, category_id)
-VALUES (2100, (SELECT id FROM brand WHERE name = 'E'), (SELECT id FROM category WHERE name = '액세서리'));
+VALUES (2000.00, (SELECT id FROM brand WHERE name = 'D'), (SELECT id FROM category WHERE name = '액세서리'));
 
 INSERT INTO product (price, brand_id, category_id)
-VALUES (11200, (SELECT id FROM brand WHERE name = 'F'), (SELECT id FROM category WHERE name = '상의'));
+VALUES (10700.00, (SELECT id FROM brand WHERE name = 'E'), (SELECT id FROM category WHERE name = '상의'));
 INSERT INTO product (price, brand_id, category_id)
-VALUES (7200, (SELECT id FROM brand WHERE name = 'F'), (SELECT id FROM category WHERE name = '아우터'));
+VALUES (5000.00, (SELECT id FROM brand WHERE name = 'E'), (SELECT id FROM category WHERE name = '아우터'));
 INSERT INTO product (price, brand_id, category_id)
-VALUES (4000, (SELECT id FROM brand WHERE name = 'F'), (SELECT id FROM category WHERE name = '바지'));
+VALUES (3800.00, (SELECT id FROM brand WHERE name = 'E'), (SELECT id FROM category WHERE name = '바지'));
 INSERT INTO product (price, brand_id, category_id)
-VALUES (9300, (SELECT id FROM brand WHERE name = 'F'), (SELECT id FROM category WHERE name = '스니커즈'));
+VALUES (9900.00, (SELECT id FROM brand WHERE name = 'E'), (SELECT id FROM category WHERE name = '스니커즈'));
 INSERT INTO product (price, brand_id, category_id)
-VALUES (2100, (SELECT id FROM brand WHERE name = 'F'), (SELECT id FROM category WHERE name = '가방'));
+VALUES (2300.00, (SELECT id FROM brand WHERE name = 'E'), (SELECT id FROM category WHERE name = '가방'));
 INSERT INTO product (price, brand_id, category_id)
-VALUES (1600, (SELECT id FROM brand WHERE name = 'F'), (SELECT id FROM category WHERE name = '모자'));
+VALUES (1800.00, (SELECT id FROM brand WHERE name = 'E'), (SELECT id FROM category WHERE name = '모자'));
 INSERT INTO product (price, brand_id, category_id)
-VALUES (2300, (SELECT id FROM brand WHERE name = 'F'), (SELECT id FROM category WHERE name = '양말'));
+VALUES (2100.00, (SELECT id FROM brand WHERE name = 'E'), (SELECT id FROM category WHERE name = '양말'));
 INSERT INTO product (price, brand_id, category_id)
-VALUES (1900, (SELECT id FROM brand WHERE name = 'F'), (SELECT id FROM category WHERE name = '액세서리'));
+VALUES (2100.00, (SELECT id FROM brand WHERE name = 'E'), (SELECT id FROM category WHERE name = '액세서리'));
 
 INSERT INTO product (price, brand_id, category_id)
-VALUES (10500, (SELECT id FROM brand WHERE name = 'G'), (SELECT id FROM category WHERE name = '상의'));
+VALUES (11200.00, (SELECT id FROM brand WHERE name = 'F'), (SELECT id FROM category WHERE name = '상의'));
 INSERT INTO product (price, brand_id, category_id)
-VALUES (5800, (SELECT id FROM brand WHERE name = 'G'), (SELECT id FROM category WHERE name = '아우터'));
+VALUES (7200.00, (SELECT id FROM brand WHERE name = 'F'), (SELECT id FROM category WHERE name = '아우터'));
 INSERT INTO product (price, brand_id, category_id)
-VALUES (3900, (SELECT id FROM brand WHERE name = 'G'), (SELECT id FROM category WHERE name = '바지'));
+VALUES (4000.00, (SELECT id FROM brand WHERE name = 'F'), (SELECT id FROM category WHERE name = '바지'));
 INSERT INTO product (price, brand_id, category_id)
-VALUES (9000, (SELECT id FROM brand WHERE name = 'G'), (SELECT id FROM category WHERE name = '스니커즈'));
+VALUES (9300.00, (SELECT id FROM brand WHERE name = 'F'), (SELECT id FROM category WHERE name = '스니커즈'));
 INSERT INTO product (price, brand_id, category_id)
-VALUES (2200, (SELECT id FROM brand WHERE name = 'G'), (SELECT id FROM category WHERE name = '가방'));
+VALUES (2000.00, (SELECT id FROM brand WHERE name = 'F'), (SELECT id FROM category WHERE name = '가방'));
 INSERT INTO product (price, brand_id, category_id)
-VALUES (1700, (SELECT id FROM brand WHERE name = 'G'), (SELECT id FROM category WHERE name = '모자'));
+VALUES (1600.00, (SELECT id FROM brand WHERE name = 'F'), (SELECT id FROM category WHERE name = '모자'));
 INSERT INTO product (price, brand_id, category_id)
-VALUES (2100, (SELECT id FROM brand WHERE name = 'G'), (SELECT id FROM category WHERE name = '양말'));
+VALUES (2300.00, (SELECT id FROM brand WHERE name = 'F'), (SELECT id FROM category WHERE name = '양말'));
 INSERT INTO product (price, brand_id, category_id)
-VALUES (2000, (SELECT id FROM brand WHERE name = 'G'), (SELECT id FROM category WHERE name = '액세서리'));
+VALUES (1900.00, (SELECT id FROM brand WHERE name = 'F'), (SELECT id FROM category WHERE name = '액세서리'));
 
 INSERT INTO product (price, brand_id, category_id)
-VALUES (10800, (SELECT id FROM brand WHERE name = 'H'), (SELECT id FROM category WHERE name = '상의'));
+VALUES (10500.00, (SELECT id FROM brand WHERE name = 'G'), (SELECT id FROM category WHERE name = '상의'));
 INSERT INTO product (price, brand_id, category_id)
-VALUES (6300, (SELECT id FROM brand WHERE name = 'H'), (SELECT id FROM category WHERE name = '아우터'));
+VALUES (5800.00, (SELECT id FROM brand WHERE name = 'G'), (SELECT id FROM category WHERE name = '아우터'));
 INSERT INTO product (price, brand_id, category_id)
-VALUES (3100, (SELECT id FROM brand WHERE name = 'H'), (SELECT id FROM category WHERE name = '바지'));
+VALUES (3900.00, (SELECT id FROM brand WHERE name = 'G'), (SELECT id FROM category WHERE name = '바지'));
 INSERT INTO product (price, brand_id, category_id)
-VALUES (9700, (SELECT id FROM brand WHERE name = 'H'), (SELECT id FROM category WHERE name = '스니커즈'));
+VALUES (9000.00, (SELECT id FROM brand WHERE name = 'G'), (SELECT id FROM category WHERE name = '스니커즈'));
 INSERT INTO product (price, brand_id, category_id)
-VALUES (2100, (SELECT id FROM brand WHERE name = 'H'), (SELECT id FROM category WHERE name = '가방'));
+VALUES (2200.00, (SELECT id FROM brand WHERE name = 'G'), (SELECT id FROM category WHERE name = '가방'));
 INSERT INTO product (price, brand_id, category_id)
-VALUES (1600, (SELECT id FROM brand WHERE name = 'H'), (SELECT id FROM category WHERE name = '모자'));
+VALUES (1700.00, (SELECT id FROM brand WHERE name = 'G'), (SELECT id FROM category WHERE name = '모자'));
 INSERT INTO product (price, brand_id, category_id)
-VALUES (2000, (SELECT id FROM brand WHERE name = 'H'), (SELECT id FROM category WHERE name = '양말'));
+VALUES (2100.00, (SELECT id FROM brand WHERE name = 'G'), (SELECT id FROM category WHERE name = '양말'));
 INSERT INTO product (price, brand_id, category_id)
-VALUES (2000, (SELECT id FROM brand WHERE name = 'H'), (SELECT id FROM category WHERE name = '액세서리'));
+VALUES (2000.00, (SELECT id FROM brand WHERE name = 'G'), (SELECT id FROM category WHERE name = '액세서리'));
 
 INSERT INTO product (price, brand_id, category_id)
-VALUES (11400, (SELECT id FROM brand WHERE name = 'I'), (SELECT id FROM category WHERE name = '상의'));
+VALUES (10800.00, (SELECT id FROM brand WHERE name = 'H'), (SELECT id FROM category WHERE name = '상의'));
 INSERT INTO product (price, brand_id, category_id)
-VALUES (6700, (SELECT id FROM brand WHERE name = 'I'), (SELECT id FROM category WHERE name = '아우터'));
+VALUES (6300.00, (SELECT id FROM brand WHERE name = 'H'), (SELECT id FROM category WHERE name = '아우터'));
 INSERT INTO product (price, brand_id, category_id)
-VALUES (3200, (SELECT id FROM brand WHERE name = 'I'), (SELECT id FROM category WHERE name = '바지'));
+VALUES (3100.00, (SELECT id FROM brand WHERE name = 'H'), (SELECT id FROM category WHERE name = '바지'));
 INSERT INTO product (price, brand_id, category_id)
-VALUES (9500, (SELECT id FROM brand WHERE name = 'I'), (SELECT id FROM category WHERE name = '스니커즈'));
+VALUES (9700.00, (SELECT id FROM brand WHERE name = 'H'), (SELECT id FROM category WHERE name = '스니커즈'));
 INSERT INTO product (price, brand_id, category_id)
-VALUES (2400, (SELECT id FROM brand WHERE name = 'I'), (SELECT id FROM category WHERE name = '가방'));
+VALUES (2100.00, (SELECT id FROM brand WHERE name = 'H'), (SELECT id FROM category WHERE name = '가방'));
 INSERT INTO product (price, brand_id, category_id)
-VALUES (1700, (SELECT id FROM brand WHERE name = 'I'), (SELECT id FROM category WHERE name = '모자'));
+VALUES (1600.00, (SELECT id FROM brand WHERE name = 'H'), (SELECT id FROM category WHERE name = '모자'));
 INSERT INTO product (price, brand_id, category_id)
-VALUES (1700, (SELECT id FROM brand WHERE name = 'I'), (SELECT id FROM category WHERE name = '양말'));
+VALUES (2000.00, (SELECT id FROM brand WHERE name = 'H'), (SELECT id FROM category WHERE name = '양말'));
 INSERT INTO product (price, brand_id, category_id)
-VALUES (2400, (SELECT id FROM brand WHERE name = 'I'), (SELECT id FROM category WHERE name = '액세서리'));
+VALUES (2000.00, (SELECT id FROM brand WHERE name = 'H'), (SELECT id FROM category WHERE name = '액세서리'));
+
+INSERT INTO product (price, brand_id, category_id)
+VALUES (11400.00, (SELECT id FROM brand WHERE name = 'I'), (SELECT id FROM category WHERE name = '상의'));
+INSERT INTO product (price, brand_id, category_id)
+VALUES (6700.00, (SELECT id FROM brand WHERE name = 'I'), (SELECT id FROM category WHERE name = '아우터'));
+INSERT INTO product (price, brand_id, category_id)
+VALUES (3200.00, (SELECT id FROM brand WHERE name = 'I'), (SELECT id FROM category WHERE name = '바지'));
+INSERT INTO product (price, brand_id, category_id)
+VALUES (9500.00, (SELECT id FROM brand WHERE name = 'I'), (SELECT id FROM category WHERE name = '스니커즈'));
+INSERT INTO product (price, brand_id, category_id)
+VALUES (2400.00, (SELECT id FROM brand WHERE name = 'I'), (SELECT id FROM category WHERE name = '가방'));
+INSERT INTO product (price, brand_id, category_id)
+VALUES (1700.00, (SELECT id FROM brand WHERE name = 'I'), (SELECT id FROM category WHERE name = '모자'));
+INSERT INTO product (price, brand_id, category_id)
+VALUES (1700.00, (SELECT id FROM brand WHERE name = 'I'), (SELECT id FROM category WHERE name = '양말'));
+INSERT INTO product (price, brand_id, category_id)
+VALUES (2400.00, (SELECT id FROM brand WHERE name = 'I'), (SELECT id FROM category WHERE name = '액세서리'));

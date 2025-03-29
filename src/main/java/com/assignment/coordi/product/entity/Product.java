@@ -14,6 +14,8 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
+
 @Entity
 @Getter
 @NoArgsConstructor
@@ -24,7 +26,7 @@ public class Product {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
-  private int price;
+  private BigDecimal price;
 
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "brand_id")
