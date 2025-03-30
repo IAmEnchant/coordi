@@ -35,4 +35,12 @@ public class Product {
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "category_id")
   private Category category;
+
+  public void setPrice(BigDecimal price) {
+    this.price = price;
+  }
+
+  public void setCategory(Category category) {
+    this.category = category;
+  }
 }
