@@ -6,11 +6,11 @@
 
 각 도메인은 아래와 같이 세부 패키지로 구성되어 있습니다.
 
-- **entity**: 도메인 모델(Brand, Category, Product) 정의
-- **repository**: 데이터베이스 접근 계층(Querydsl, JPA)
+- **entity**: 도메인 모델 정의
+- **repository**: 데이터베이스 접근 계층
 - **dto**: Controller와 Service 간의 데이터 전송 객체
-- **service**: 도메인 비즈니스 로직 구현 (자신의 Repository만 직접 참조하며, 다른 도메인의 데이터는 해당 도메인의 Service를 호출)
-- **controller**: REST API 엔드포인트 제공 (요청/응답은 모두 DTO로 주고받음)
+- **service**: 도메인 비즈니스 로직 구현
+- **controller**: REST API 엔드포인트 제공
 - **exception**: 도메인별 Custom Exception 및 Global Exception Handler
 
 ### 제공 API
