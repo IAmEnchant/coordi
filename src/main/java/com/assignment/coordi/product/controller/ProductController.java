@@ -22,7 +22,7 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/product")
-public class ProductController {
+public class ProductController implements ProductControllerDocs {
   private final ProductService productService;
 
   @GetMapping("/lowest-category")

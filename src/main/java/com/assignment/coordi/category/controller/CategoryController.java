@@ -19,7 +19,7 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/category")
-public class CategoryController {
+public class CategoryController implements CategoryControllerDocs {
   private final CategoryService categoryService;
 
   @GetMapping

@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/brand")
-public class BrandController {
+public class BrandController implements BrandControllerDocs {
   private final BrandService brandService;
 
   @GetMapping("/lowest-single-brand")
