@@ -13,9 +13,9 @@ public class SwaggerConfig {
   @Bean
   public OpenAPI openAPI() {
     Info info = new Info()
-      .title("Green Reuse API")
+      .title("Java Backend Engineer Assignment API")
       .version("0.0.1")
-      .description("Green Reuse API 명세입니다.");
+      .description("Java Backend Engineer Assignment API 명세입니다.");
 
     SecurityScheme securityScheme = new SecurityScheme()
       .type(SecurityScheme.Type.HTTP)

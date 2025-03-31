@@ -65,9 +65,13 @@ public class CategoryService {
     categoryRepository.deleteById(id);
   }
 
-  // 다른 도메인에서 카테고리 엔티티가 필요할 때 호출하는 전용 메서드
   public Category getCategoryEntity(Long id) {
     return categoryRepository.findById(id)
+      .orElseThrow(() -> new CategoryNotFoundException("지정한 카테고리를 찾을 수 없습니다."));
+  }
+
+  public Category findCategoryByName(String name) {
+    return categoryRepository.findByName(name)
       .orElseThrow(() -> new CategoryNotFoundException("지정한 카테고리를 찾을 수 없습니다."));
   }
 }

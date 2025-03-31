@@ -29,9 +29,7 @@ public class ProductService {
   private final BrandService brandService;
   private final CategoryService categoryService;
 
-  // 기존 기능 (API 1: 각 카테고리별 최저가격 및 총액 조회)
   public LowestPriceByCategoryResponseDto getLowestPriceByCategory() {
-    // CategoryService에서 고정 카테고리 목록 조회 (DTO로 반환하므로 key 값만 추출)
     List<String> categories = categoryService.getAllCategories()
       .stream().map(CategoryResponseDto::getName).toList();
 
@@ -61,10 +59,11 @@ public class ProductService {
       .build();
   }
 
-  // 기존 기능 (API 3: 특정 카테고리의 최저/최고 가격 조회)
   public CategoryPriceInfoResponseDto getCategoryPriceInfo(
     String categoryName
   ) {
+    categoryService.findCategoryByName(categoryName);
+
     Optional<Product> lowestOpt =
       productRepository.findLowestPriceProductByCategory(categoryName);
     Optional<Product> highestOpt =
@@ -89,7 +88,6 @@ public class ProductService {
       .build();
   }
 
-  // --- Product CRUD ---
   public List<ProductResponseDto> getAllProducts() {
     return productRepository.findAll().stream()
       .map(product -> ProductResponseDto.builder()
@@ -113,7 +111,6 @@ public class ProductService {
   }
 
   public ProductResponseDto createProduct(ProductRequestDto requestDto) {
-    // 다른 도메인의 엔티티는 각 서비스의 전용 메서드를 호출하여 가져옵니다.
     var brand = brandService.getBrandEntity(requestDto.getBrandId());
     var category =
       categoryService.getCategoryEntity(requestDto.getCategoryId());
