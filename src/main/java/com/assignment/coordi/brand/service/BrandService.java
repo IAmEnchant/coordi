@@ -21,6 +21,11 @@ import java.util.stream.Collectors;
 public class BrandService {
   private final BrandRepository brandRepository;
 
+  /**
+   * 단일 브랜드 최저가 조회
+   *
+   * @return LowestSingleBrandResponseDto
+   */
   public LowestSingleBrandResponseDto getLowestTotalForSingleBrand() {
     Optional<Brand> lowestBrandOpt =
       brandRepository.findBrandWithLowestTotalPrice();
@@ -46,6 +51,12 @@ public class BrandService {
     }
   }
 
+  /**
+   * 브랜드 생성
+   *
+   * @param requestDto
+   * @return BrandResponseDto
+   */
   public BrandResponseDto createBrand(BrandRequestDto requestDto) {
     Brand brand = Brand.builder()
       .name(requestDto.getName())
@@ -57,6 +68,13 @@ public class BrandService {
       .build();
   }
 
+  /**
+   * 브랜드 수정
+   *
+   * @param id
+   * @param requestDto
+   * @return BrandResponseDto
+   */
   public BrandResponseDto updateBrand(Long id, BrandRequestDto requestDto) {
     Brand updated = brandRepository.findById(id).map(brand -> {
       brand.setName(requestDto.getName());
@@ -68,6 +86,11 @@ public class BrandService {
       .build();
   }
 
+  /**
+   * 브랜드 삭제
+   *
+   * @param id
+   */
   public void deleteBrand(Long id) {
     if (!brandRepository.existsById(id)) {
       throw new BrandNotFoundException("삭제할 브랜드가 존재하지 않습니다.");
@@ -75,6 +98,12 @@ public class BrandService {
     brandRepository.deleteById(id);
   }
 
+  /**
+   * 브랜드 가져오기
+   *
+   * @param id
+   * @return Brand
+   */
   public Brand getBrandEntity(Long id) {
     return brandRepository.findById(id)
       .orElseThrow(() -> new BrandNotFoundException("지정한 브랜드를 찾을 수 없습니다."));

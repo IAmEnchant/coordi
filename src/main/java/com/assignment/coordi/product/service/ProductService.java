@@ -29,6 +29,11 @@ public class ProductService {
   private final BrandService brandService;
   private final CategoryService categoryService;
 
+  /**
+   * 카테고리 별 최저가 브랜드와 상품 가격, 총액 조회
+   *
+   * @return LowestPriceByCategoryResponseDto
+   */
   public LowestPriceByCategoryResponseDto getLowestPriceByCategory() {
     List<String> categories = categoryService.getAllCategories()
       .stream().map(CategoryResponseDto::getName).toList();
@@ -59,6 +64,12 @@ public class ProductService {
       .build();
   }
 
+  /**
+   * 카테고리 이름으로 최저/최고 가격 브랜드와 상품 조회
+   *
+   * @param categoryName
+   * @return
+   */
   public CategoryPriceInfoResponseDto getCategoryPriceInfo(
     String categoryName
   ) {
@@ -88,6 +99,11 @@ public class ProductService {
       .build();
   }
 
+  /**
+   * 전체 상품 조회
+   *
+   * @return List<ProductResponseDto>
+   */
   public List<ProductResponseDto> getAllProducts() {
     return productRepository.findAll().stream()
       .map(product -> ProductResponseDto.builder()
@@ -99,6 +115,12 @@ public class ProductService {
       .collect(Collectors.toList());
   }
 
+  /**
+   * 상품 조회
+   *
+   * @param id
+   * @return
+   */
   public ProductResponseDto getProductById(Long id) {
     Product product = productRepository.findById(id)
       .orElseThrow(() -> new ProductNotFoundException("제품을 찾을 수 없습니다."));
@@ -110,6 +132,12 @@ public class ProductService {
       .build();
   }
 
+  /**
+   * 상품 생성
+   *
+   * @param requestDto
+   * @return ProductResponseDto
+   */
   public ProductResponseDto createProduct(ProductRequestDto requestDto) {
     var brand = brandService.getBrandEntity(requestDto.getBrandId());
     var category =
@@ -128,6 +156,13 @@ public class ProductService {
       .build();
   }
 
+  /**
+   * 상품 수정
+   *
+   * @param id
+   * @param requestDto
+   * @return ProductResponseDto
+   */
   public ProductResponseDto updateProduct(
     Long id, ProductRequestDto requestDto
   ) {
@@ -145,6 +180,11 @@ public class ProductService {
       .build();
   }
 
+  /**
+   * 상품 삭제
+   *
+   * @param id
+   */
   public void deleteProduct(Long id) {
     if (!productRepository.existsById(id)) {
       throw new ProductNotFoundException("삭제할 제품이 존재하지 않습니다.");
